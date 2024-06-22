@@ -9,6 +9,8 @@ import Start from "./pages/Start";
 
 import "./global.css";
 
+import "@fontsource-variable/montserrat";
+
 const router = createBrowserRouter([
   {
     element: <Start />,
