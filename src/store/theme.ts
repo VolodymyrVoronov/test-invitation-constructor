@@ -32,5 +32,5 @@ export const useThemeStore = create(
 
       set({ theme });
     },
-  }))
+  })),
 );
