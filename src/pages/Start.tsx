@@ -1,38 +1,49 @@
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import {
-  Slider,
-  SliderFillTrack,
-  SliderOutput,
-  SliderThumb,
-  SliderTrack,
-} from "@/components/ui/slider";
+import { useNavigate } from "react-router-dom";
 
-import { cn } from "@/lib/utils";
+import { ROUTES } from "@/constants";
+
+import { Button } from "@/components/ui/button";
+import { SparklesCore } from "@/components/ui/sparkles";
 
 const Start = (): JSX.Element => {
-  return (
-    <div className="space-y-4">
-      <Button variant="default">Button</Button>
+  const navigate = useNavigate();
 
-      <Slider
-        aria-label="slider demo"
-        defaultValue={[50]}
-        maxValue={100}
-        step={1}
-        className={cn("w-[60%]")}
-      >
-        <div className="flex w-full flex-col">
-          <div className="flex justify-between">
-            <Label>Opacity</Label>
-            <SliderOutput className="text-sm" />
-          </div>
-          <SliderTrack>
-            <SliderFillTrack />
-            <SliderThumb />
-          </SliderTrack>
-        </div>
-      </Slider>
+  const onStartButtonClick = (): void => {
+    navigate(ROUTES.CONSTRUCTOR);
+  };
+
+  return (
+    <div className="h-screen relative w-screen bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+      <div className="w-full absolute inset-0 h-screen">
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="w-full h-full"
+          particleColor="rgba(255,255,255,0.5)"
+        />
+      </div>
+
+      <div className="space-y-10 flex justify-center flex-col items-center">
+        <h1 className="md:text-7xl  text-3xl lg:text-6xl font-bold text-center text-white relative z-20">
+          Invite Me!
+        </h1>
+
+        <p className="md:text-2xl text-xl lg:text-2xl font-light text-center text-white relative z-20">
+          Create a cool invitation for any occasions.
+        </p>
+
+        <Button
+          variant="outline"
+          size="lg"
+          className="z-20 relative "
+          onPress={onStartButtonClick}
+        >
+          Start
+        </Button>
+      </div>
     </div>
   );
 };
