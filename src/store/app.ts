@@ -1,4 +1,5 @@
 import { CSSProperties } from "react";
+import { temporal } from "zundo";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
@@ -17,38 +18,40 @@ export interface IAppActions {
 }
 
 export const useAppStore = create(
-  immer<IAppStore & IAppActions>((set, get) => ({
-    canvasElements: [],
+  temporal(
+    immer<IAppStore & IAppActions>((set, get) => ({
+      canvasElements: [],
 
-    setCanvasElement: (element: CanvasElement) => {
-      const newCanvasElement: CanvasElement = {
-        id: generateRandomUUID(),
-        ...element,
-      };
+      setCanvasElement: (element: CanvasElement) => {
+        const newCanvasElement: CanvasElement = {
+          id: generateRandomUUID(),
+          ...element,
+        };
 
-      set((state) => {
-        state.canvasElements.push(newCanvasElement);
-      });
-    },
+        set((state) => {
+          state.canvasElements.push(newCanvasElement);
+        });
+      },
 
-    updateCanvasElementCSS: (id: string, css: CSSProperties) => {
-      set((state) => {
-        const index = state.canvasElements.findIndex(
-          (element) => element.id === id,
-        );
+      updateCanvasElementCSS: (id: string, css: CSSProperties) => {
+        set((state) => {
+          const index = state.canvasElements.findIndex(
+            (element) => element.id === id,
+          );
 
-        state.canvasElements[index].css = css;
-      });
-    },
+          state.canvasElements[index].css = css;
+        });
+      },
 
-    updateCanvasElementContent: (id: string, content: string) => {
-      set((state) => {
-        const index = state.canvasElements.findIndex(
-          (element) => element.id === id,
-        );
+      updateCanvasElementContent: (id: string, content: string) => {
+        set((state) => {
+          const index = state.canvasElements.findIndex(
+            (element) => element.id === id,
+          );
 
-        state.canvasElements[index].content = content;
-      });
-    },
-  })),
+          state.canvasElements[index].content = content;
+        });
+      },
+    })),
+  ),
 );
