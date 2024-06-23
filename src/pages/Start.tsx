@@ -7,6 +7,7 @@ import BlurIn from "@/components/ui/blur-in";
 import { Button } from "@/components/ui/button";
 import { SparklesCore } from "@/components/ui/sparkles";
 import SparklesText from "@/components/ui/sparkles-text";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 const Start = (): JSX.Element => {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ const Start = (): JSX.Element => {
           </Button>
         </motion.span>
       </div>
+      <BorderBeam size={250} duration={16} delay={9} borderWidth={3} />
     </div>
   );
 };
