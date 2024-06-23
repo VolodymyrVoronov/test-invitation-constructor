@@ -1,7 +1,7 @@
-import React from "react";
+import ConstructorLayout from "@/components/ConstructorLayout/ConstructorLayout";
 
 const Constructor = (): JSX.Element => {
-  return <div>Constructor</div>;
+  return <ConstructorLayout />;
 };
 
 export default Constructor;

@@ -26,7 +26,7 @@ const Start = (): JSX.Element => {
         />
       </div>
 
-      <div className="space-y-10 flex justify-center flex-col items-center">
+      <div className="space-y-6 md:space-y-10 flex justify-center flex-col items-center">
         <h1 className="md:text-7xl  text-3xl lg:text-6xl font-bold text-center text-white relative z-20">
           Invite Me!
         </h1>
@@ -40,6 +40,8 @@ const Start = (): JSX.Element => {
           size="lg"
           className="z-20 relative "
           onPress={onStartButtonClick}
+          type="button"
+          aria-label="Start"
         >
           Start
         </Button>
