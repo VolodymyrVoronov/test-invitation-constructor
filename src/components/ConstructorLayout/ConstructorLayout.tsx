@@ -6,7 +6,7 @@ const ConstructorLayout = (): JSX.Element => {
   return (
     <div className="grid w-auto grid-cols-1 gap-2 p-2">
       <nav className="grid w-auto grid-cols-[1fr_40px] grid-rows-1">
-        <RedoUndoButtons />
+        <RedoUndoButtons className="sm:mr-[-40px]" />
         <ThemeToggle />
       </nav>
 

@@ -1,10 +1,17 @@
 import { Redo, Undo } from "lucide-react";
+import { ComponentProps } from "react";
+import { cn } from "@/lib/utils";
 
 import { useAppStore } from "@/store/app";
 
 import { Button } from "../ui/button";
 
-const RedoUndoButtons = (): JSX.Element => {
+interface IRedoUndoButtonsProps extends ComponentProps<"div"> {}
+
+const RedoUndoButtons = ({
+  className,
+  ...rest
+}: IRedoUndoButtonsProps): JSX.Element => {
   const { undo, redo } = useAppStore.temporal.getState();
 
   const onUndoButtonClick = (): void => {
@@ -16,7 +23,10 @@ const RedoUndoButtons = (): JSX.Element => {
   };
 
   return (
-    <div className="flex items-center justify-center gap-2">
+    <div
+      className={cn("flex items-center justify-center gap-2", className)}
+      {...rest}
+    >
       <Button
         onPress={onUndoButtonClick}
         type="button"
