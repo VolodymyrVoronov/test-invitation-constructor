@@ -13,32 +13,32 @@ const Start = (): JSX.Element => {
   };
 
   return (
-    <div className="h-screen relative w-screen bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
-      <div className="w-full absolute inset-0 h-screen">
+    <div className="relative flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-black">
+      <div className="absolute inset-0 h-screen w-full">
         <SparklesCore
           id="tsparticlesfullpage"
           background="transparent"
           minSize={0.6}
           maxSize={1.4}
           particleDensity={100}
-          className="w-full h-full"
+          className="h-full w-full"
           particleColor="rgba(255,255,255,0.5)"
         />
       </div>
 
-      <div className="space-y-6 md:space-y-10 flex justify-center flex-col items-center">
-        <h1 className="md:text-7xl  text-3xl lg:text-6xl font-bold text-center text-white relative z-20">
+      <div className="flex flex-col items-center justify-center space-y-6 md:space-y-10">
+        <h1 className="relative z-20 text-center text-3xl font-bold text-white md:text-7xl lg:text-6xl">
           Invite Me!
         </h1>
 
-        <p className="md:text-2xl text-xl lg:text-2xl font-light text-center text-white relative z-20">
+        <p className="relative z-20 text-center text-xl font-light text-white md:text-2xl lg:text-2xl">
           Create a cool invitation for any occasions.
         </p>
 
         <Button
           variant="outline"
           size="lg"
-          className="z-20 relative "
+          className="relative z-20"
           onPress={onStartButtonClick}
           type="button"
           aria-label="Start"
