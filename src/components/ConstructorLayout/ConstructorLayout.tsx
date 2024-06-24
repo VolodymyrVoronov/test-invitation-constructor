@@ -1,3 +1,4 @@
+import ConstructorLeft from "../ConstructorLeft/ConstructorLeft";
 import DotBackground from "../DotBackground/DotBackground";
 import RedoUndoButtons from "../RedoUndoButtons/RedoUndoButtons";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
@@ -11,12 +12,9 @@ const ConstructorLayout = (): JSX.Element => {
       </nav>
 
       <main className="grid w-auto grid-cols-2 grid-rows-2 lg:grid-cols-[200px_1fr_200px] lg:grid-rows-1 xl:grid-cols-[300px_1fr_300px]">
-        <section className="lg:col-span-200px col-span-2 row-start-1 p-2 sm:col-span-1">
+        <section className="lg:col-span-200px col-span-2 row-start-1 sm:col-span-1">
           <DotBackground className="h-auto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsa
-            explicabo modi. Eveniet perferendis id laborum nostrum ipsum
-            distinctio, veritatis ut veniam assumenda quis ducimus reiciendis
-            accusamus possimus at dolorum.
+            <ConstructorLeft />
           </DotBackground>
         </section>
 
@@ -24,7 +22,7 @@ const ConstructorLayout = (): JSX.Element => {
           2
         </section>
 
-        <section className="lg:col-span-200px col-span-2 row-start-2 p-2 sm:col-span-1 sm:row-start-1 lg:row-start-1">
+        <section className="lg:col-span-200px col-span-2 row-start-2 sm:col-span-1 sm:row-start-1 lg:row-start-1">
           <DotBackground className="h-auto">3</DotBackground>
         </section>
       </main>
