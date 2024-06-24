@@ -66,7 +66,7 @@ const Start = (): JSX.Element => {
         </motion.span>
       </div>
 
-      <BorderBeam size={250} duration={16} delay={9} borderWidth={3} />
+      <BorderBeam size={250} duration={16} delay={9} borderWidth={5} />
     </div>
   );
 };
