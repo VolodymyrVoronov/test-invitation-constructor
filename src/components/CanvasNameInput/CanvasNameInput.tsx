@@ -1,10 +1,10 @@
+import { ChangeEvent } from "react";
 import { Text, TextField } from "react-aria-components";
 import { useShallow } from "zustand/react/shallow";
 
 import { useAppStore } from "@/store/app";
 
 import { Input } from "@/components/ui/input";
-import { ChangeEvent } from "react";
 
 const CanvasNameInput = (): JSX.Element => {
   const [canvasSize, setCanvasSize] = useAppStore(

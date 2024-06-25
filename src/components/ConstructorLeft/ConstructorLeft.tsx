@@ -1,5 +1,5 @@
-import { ReactElement, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { memo, ReactElement, useState } from "react";
 
 import BackgroundSelector from "../BackgroundSelector/BackgroundSelector";
 import ElementSelector from "../ElementSelector/ElementSelector";
@@ -20,7 +20,7 @@ const SideElements: { element: ReactElement }[] = [
   },
 ];
 
-const ConstructorLeft = (): JSX.Element => {
+const ConstructorLeft = memo((): JSX.Element => {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabChange = (index: number): void => {
@@ -47,6 +47,6 @@ const ConstructorLeft = (): JSX.Element => {
       </AnimatePresence>
     </div>
   );
-};
+});
 
 export default ConstructorLeft;
