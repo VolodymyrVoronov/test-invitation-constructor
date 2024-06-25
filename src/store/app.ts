@@ -8,11 +8,17 @@ import { CanvasElement } from "@/types";
 import generateRandomUUID from "@/helpers/generateRandomUUID";
 
 export interface IAppStore {
+  canvasName: string;
+  canvasSize: [number, number];
+  canvasBackgroundColor: string;
   canvasElements: CanvasElement[];
   selectedCanvasElementId: string;
 }
 
 export interface IAppActions {
+  setCanvasName: (canvasName: string) => void;
+  setCanvasSize: (size: [number, number]) => void;
+  setCanvasBackgroundColor: (color: string) => void;
   setCanvasElement: (element: CanvasElement) => void;
   updateCanvasElementCSS: (id: string, css: CSSProperties) => void;
   updateCanvasElementContent: (id: string, content: string) => void;
@@ -22,8 +28,23 @@ export interface IAppActions {
 export const useAppStore = create(
   temporal(
     immer<IAppStore & IAppActions>((set, get) => ({
+      canvasName: "my-invitation",
+      canvasSize: [1024, 768],
+      canvasBackgroundColor: "#ffffff",
       canvasElements: [],
       selectedCanvasElementId: "",
+
+      setCanvasName: (canvasName: string) => {
+        set({ canvasName });
+      },
+
+      setCanvasSize: (size: [number, number]) => {
+        set({ canvasSize: size });
+      },
+
+      setCanvasBackgroundColor: (color: string) => {
+        set({ canvasBackgroundColor: color });
+      },
 
       setCanvasElement: (element: CanvasElement) => {
         const newCanvasElement: CanvasElement = {

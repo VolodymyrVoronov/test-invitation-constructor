@@ -22,14 +22,14 @@ const tabs: ITab[] = [
   {
     id: 0,
     index: 0,
-    icon: <Proportions />,
+    icon: <Box />,
     ariaLabel: "Tab Elements",
     tooltip: "Add Elements",
   },
   {
     id: 1,
     index: 1,
-    icon: <Box />,
+    icon: <Proportions />,
     ariaLabel: "Tab Background",
     tooltip: "Add Background",
   },
@@ -70,6 +70,9 @@ const LeftSideBar = ({
               onPress={() => onTabClick(tab.index)}
               aria-label={tab.ariaLabel}
               variant={activeTab === tab.index ? "default" : "ghost"}
+              className={cn({
+                "rounded-r-none": activeTab === tab.index,
+              })}
             >
               {tab.icon}
             </Button>

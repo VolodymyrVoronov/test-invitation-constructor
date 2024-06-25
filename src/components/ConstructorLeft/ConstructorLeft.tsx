@@ -28,16 +28,16 @@ const ConstructorLeft = (): JSX.Element => {
   };
 
   return (
-    <div className="grid w-full grid-cols-[auto_1fr] gap-2">
+    <div className="grid w-full grid-cols-[auto_1fr]">
       <LeftSideBar handleTabChange={handleTabChange} activeTab={activeTab} />
 
       <AnimatePresence mode="wait">
         <motion.div
-          className=""
+          className="border-2 border-black p-1"
           key={activeTab}
-          initial={{ opacity: 0, y: "-50px" }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: "50px" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{
             duration: 0.5,
           }}
