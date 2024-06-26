@@ -8,3 +8,5 @@ export type CanvasElement = {
   selected?: boolean;
   content?: string;
 };
+
+export type SaveFormat = "pdf" | "png" | "jpeg";

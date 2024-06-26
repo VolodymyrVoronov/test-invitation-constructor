@@ -1,4 +1,6 @@
 import CanvasNameInput from "../CanvasNameInput/CanvasNameInput";
+import CanvasSizeInput from "../CanvasSizeInput/CanvasSizeInput";
+import SaveButton from "../SaveButton/SaveButton";
 import { Separator } from "../ui/separator";
 
 const CanvasSettings = (): JSX.Element => {
@@ -8,11 +10,11 @@ const CanvasSettings = (): JSX.Element => {
 
       <Separator orientation="vertical" />
 
-      <div>2</div>
+      <CanvasSizeInput />
 
       <Separator orientation="vertical" />
 
-      <div>3</div>
+      <SaveButton />
     </div>
   );
 };

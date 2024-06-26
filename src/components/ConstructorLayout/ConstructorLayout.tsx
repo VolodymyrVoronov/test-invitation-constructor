@@ -19,8 +19,6 @@ const ConstructorLayout = (): JSX.Element => {
   const ref = useRef(null);
   const size = useSize(ref);
 
-  console.log(size?.width);
-
   useEffect(() => {
     if (size && canvasSize[1] > size.width) {
       setCanvasSize([canvasSize[0], size.width]);
