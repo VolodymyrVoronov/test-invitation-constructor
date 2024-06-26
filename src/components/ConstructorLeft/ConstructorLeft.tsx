@@ -33,7 +33,7 @@ const ConstructorLeft = memo((): JSX.Element => {
 
       <AnimatePresence mode="wait">
         <motion.div
-          className="border-2 border-black p-1 dark:border-slate-400"
+          className="border-2 border-black p-3 dark:border-slate-400"
           key={activeTab}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
