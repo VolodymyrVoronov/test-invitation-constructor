@@ -9,11 +9,11 @@ const Canvas = (): JSX.Element => {
 
   return (
     <div
-      className="w-full border-2 border-dashed border-black"
+      className="w-full border-2 border-dashed border-black dark:border-slate-400"
       style={{
         height: `${canvasSize[0]}px`,
         width: `${canvasSize[1]}px`,
-        backgroundColor: canvasBackgroundColor,
+        backgroundColor: canvasBackgroundColor as string,
       }}
     >
       Canvas

@@ -61,7 +61,7 @@ const LeftSideBar = ({
   };
 
   return (
-    <ul className={cn("grid w-full gap-1", className)} {...rest}>
+    <ul className={cn("grid w-full content-start gap-1", className)} {...rest}>
       {tabs.map((tab) => (
         <li key={tab.id}>
           <TooltipTrigger>

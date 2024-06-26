@@ -8,7 +8,6 @@ import Canvas from "../Canvas/Canvas";
 import CanvasSettings from "../CanvasSettings/CanvasSettings";
 import CanvasSizeView from "../CanvasSizeView/CanvasSizeView";
 import ConstructorLeft from "../ConstructorLeft/ConstructorLeft";
-import DotBackground from "../DotBackground/DotBackground";
 import Nav from "../Nav/Nav";
 
 const ConstructorLayout = (): JSX.Element => {
@@ -31,14 +30,12 @@ const ConstructorLayout = (): JSX.Element => {
 
       <main className="grid w-auto grid-cols-2 grid-rows-[auto_1fr] gap-2 lg:grid-cols-[200px_1fr_200px] lg:grid-rows-1 xl:grid-cols-[300px_1fr_300px]">
         <section className="lg:col-span-200px col-span-2 row-start-1 sm:col-span-1">
-          <DotBackground className="h-auto">
-            <ConstructorLeft />
-          </DotBackground>
+          <ConstructorLeft />
         </section>
 
         <section
           ref={ref}
-          className="col-span-2 flex w-full flex-col items-center gap-5 border-2 border-black p-2 lg:col-span-1 lg:row-start-1"
+          className="col-span-2 flex w-full flex-col items-center gap-5 border-2 border-black p-2 dark:border-slate-400 lg:col-span-1 lg:row-start-1"
         >
           <CanvasSettings />
           <CanvasSizeView />
@@ -46,7 +43,7 @@ const ConstructorLayout = (): JSX.Element => {
         </section>
 
         <section className="lg:col-span-200px col-span-2 row-start-2 sm:col-span-1 sm:row-start-1 lg:row-start-1">
-          <DotBackground className="h-auto">3</DotBackground>
+          <div>3</div>
         </section>
       </main>
     </div>
