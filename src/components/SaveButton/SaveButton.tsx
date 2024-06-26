@@ -40,7 +40,10 @@ const SaveButton = memo((): JSX.Element => {
         </MenuPopover>
       </MenuTrigger>
 
-      <Text slot="description" className="text-sm text-muted-foreground">
+      <Text
+        slot="description"
+        className="text-sm uppercase text-muted-foreground"
+      >
         pdf | png | jpeg
       </Text>
     </div>
