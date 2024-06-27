@@ -20,11 +20,8 @@ const BackgroundGradientSelector = (): JSX.Element => {
   };
 
   return (
-    <ScrollArea
-      type="auto"
-      className="grid h-[200px] w-full grid-cols-1 gap-3 pr-3.5"
-    >
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(30px,1fr))] gap-2">
+    <ScrollArea type="auto" className="grid h-[200px] w-full grid-cols-1 gap-3">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(30px,1fr))] gap-2 p-1 pr-3">
         {GRADIENTS.map((gradient) => (
           <Button
             key={gradient}
