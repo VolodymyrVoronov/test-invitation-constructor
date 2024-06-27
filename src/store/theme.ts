@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
+import { devtools } from "zustand/middleware";
 
 import { Theme } from "@/types";
 
@@ -22,15 +23,17 @@ export interface IThemeActions {
 }
 
 export const useThemeStore = create(
-  immer<IThemeStore & IThemeActions>((set) => ({
-    theme: initializeTheme(),
+  devtools(
+    immer<IThemeStore & IThemeActions>((set) => ({
+      theme: initializeTheme(),
 
-    setTheme: (theme: Theme) => {
-      localStorage.setItem("theme", theme);
+      setTheme: (theme: Theme) => {
+        localStorage.setItem("theme", theme);
 
-      applyTheme(theme);
+        applyTheme(theme);
 
-      set({ theme });
-    },
-  })),
+        set({ theme });
+      },
+    })),
+  ),
 );

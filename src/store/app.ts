@@ -2,6 +2,7 @@ import { CSSProperties } from "react";
 import { temporal } from "zundo";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
+import { devtools } from "zustand/middleware";
 
 import { CanvasElement } from "@/types";
 
@@ -28,61 +29,63 @@ export interface IAppActions {
 
 export const useAppStore = create(
   temporal(
-    immer<IAppStore & IAppActions>((set, get) => ({
-      canvasName: "my-invitation",
-      canvasSize: [1024, 768],
-      canvasBackgroundColor: "#ffffff",
-      canvasElements: [],
-      selectedCanvasElementId: "",
+    devtools(
+      immer<IAppStore & IAppActions>((set, get) => ({
+        canvasName: "my-invitation",
+        canvasSize: [1024, 768],
+        canvasBackgroundColor: "#ffffff",
+        canvasElements: [],
+        selectedCanvasElementId: "",
 
-      setCanvasName: (canvasName: string) => {
-        set({ canvasName });
-      },
+        setCanvasName: (canvasName: string) => {
+          set({ canvasName });
+        },
 
-      setCanvasSize: (size: [number, number]) => {
-        set({ canvasSize: size });
-      },
+        setCanvasSize: (size: [number, number]) => {
+          set({ canvasSize: size });
+        },
 
-      setCanvasBackgroundColor: (color: string | Color) => {
-        set({ canvasBackgroundColor: color });
-      },
+        setCanvasBackgroundColor: (color: string | Color) => {
+          set({ canvasBackgroundColor: color });
+        },
 
-      setCanvasElement: (element: CanvasElement) => {
-        const newCanvasElement: CanvasElement = {
-          id: generateRandomUUID(),
-          selected: false,
-          ...element,
-        };
+        setCanvasElement: (element: CanvasElement) => {
+          const newCanvasElement: CanvasElement = {
+            id: generateRandomUUID(),
+            selected: false,
+            ...element,
+          };
 
-        set((state) => {
-          state.canvasElements.push(newCanvasElement);
-        });
-      },
+          set((state) => {
+            state.canvasElements.push(newCanvasElement);
+          });
+        },
 
-      updateCanvasElementCSS: (id: string, css: CSSProperties) => {
-        set((state) => {
-          const index = state.canvasElements.findIndex(
-            (element) => element.id === id,
-          );
+        updateCanvasElementCSS: (id: string, css: CSSProperties) => {
+          set((state) => {
+            const index = state.canvasElements.findIndex(
+              (element) => element.id === id,
+            );
 
-          state.canvasElements[index].css = css;
-        });
-      },
+            state.canvasElements[index].css = css;
+          });
+        },
 
-      updateCanvasElementContent: (id: string, content: string) => {
-        set((state) => {
-          const index = state.canvasElements.findIndex(
-            (element) => element.id === id,
-          );
+        updateCanvasElementContent: (id: string, content: string) => {
+          set((state) => {
+            const index = state.canvasElements.findIndex(
+              (element) => element.id === id,
+            );
 
-          state.canvasElements[index].content = content;
-        });
-      },
+            state.canvasElements[index].content = content;
+          });
+        },
 
-      setSelectedCanvasElementId: (id: string) => {
-        set({ selectedCanvasElementId: id });
-      },
-    })),
-    { limit: 50 },
+        setSelectedCanvasElementId: (id: string) => {
+          set({ selectedCanvasElementId: id });
+        },
+      })),
+      { limit: 50 },
+    ),
   ),
 );
