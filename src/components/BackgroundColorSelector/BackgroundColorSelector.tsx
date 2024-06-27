@@ -1,5 +1,5 @@
 import { useShallow } from "zustand/react/shallow";
-import { Color } from "react-aria-components";
+import { type Color } from "react-aria-components";
 
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/app";

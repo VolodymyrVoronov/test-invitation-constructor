@@ -1,11 +1,11 @@
 import { useShallow } from "zustand/react/shallow";
 
+import { GRADIENTS } from "@/constants";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/app";
-import { GRADIENTS } from "@/constants";
 
-import { Button } from "../ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Button } from "../ui/button";
 
 const BackgroundGradientSelector = (): JSX.Element => {
   const [canvasBackgroundColor, setCanvasBackgroundColor] = useAppStore(
