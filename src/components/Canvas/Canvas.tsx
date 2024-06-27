@@ -13,7 +13,7 @@ const Canvas = (): JSX.Element => {
       style={{
         height: `${canvasSize[0]}px`,
         width: `${canvasSize[1]}px`,
-        backgroundColor: canvasBackgroundColor as string,
+        background: canvasBackgroundColor as string,
       }}
     >
       Canvas

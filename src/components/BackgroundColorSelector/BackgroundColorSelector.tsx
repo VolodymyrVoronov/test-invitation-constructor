@@ -1,4 +1,5 @@
 import { useShallow } from "zustand/react/shallow";
+import { Color } from "react-aria-components";
 
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/app";
@@ -6,7 +7,6 @@ import { BACKGROUNDS } from "@/constants";
 
 import { Button } from "../ui/button";
 import { ColorSlider, ColorThumb, SliderTrack } from "@/components/ui/color";
-import { Color } from "react-aria-components";
 
 const BackgroundColorSelector = (): JSX.Element => {
   const [canvasBackgroundColor, setCanvasBackgroundColor] = useAppStore(

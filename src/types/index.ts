@@ -2,8 +2,11 @@ import { CSSProperties } from "react";
 
 export type Theme = "light" | "dark" | "system";
 
+export type CanvasElementType = "image" | "figure" | "text";
+
 export type CanvasElement = {
-  id?: string;
+  id: string;
+  type: CanvasElementType;
   css?: CSSProperties;
   selected?: boolean;
   content?: string;

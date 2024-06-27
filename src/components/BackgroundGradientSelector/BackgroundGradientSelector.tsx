@@ -1,0 +1,51 @@
+import { useShallow } from "zustand/react/shallow";
+
+import { cn } from "@/lib/utils";
+import { useAppStore } from "@/store/app";
+import { GRADIENTS } from "@/constants";
+
+import { Button } from "../ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+const BackgroundGradientSelector = (): JSX.Element => {
+  const [canvasBackgroundColor, setCanvasBackgroundColor] = useAppStore(
+    useShallow((state) => [
+      state.canvasBackgroundColor,
+      state.setCanvasBackgroundColor,
+    ]),
+  );
+
+  const onBackgroundColorClick = (gradient: string): void => {
+    setCanvasBackgroundColor(gradient);
+  };
+
+  return (
+    <ScrollArea
+      type="auto"
+      className="grid h-[200px] w-full grid-cols-1 gap-3 pr-3.5"
+    >
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(30px,1fr))] gap-2">
+        {GRADIENTS.map((gradient) => (
+          <Button
+            key={gradient}
+            type="button"
+            variant="outline"
+            size="icon"
+            className={cn("h-8 w-8 opacity-90 hover:opacity-100", {
+              "ring-2 ring-black dark:ring-slate-400":
+                gradient === canvasBackgroundColor,
+            })}
+            onPress={() => {
+              onBackgroundColorClick(gradient);
+            }}
+            style={{
+              background: gradient,
+            }}
+          />
+        ))}
+      </div>
+    </ScrollArea>
+  );
+};
+
+export default BackgroundGradientSelector;
