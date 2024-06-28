@@ -27,6 +27,7 @@ export interface IAppActions {
   updateCanvasElementContent: (id: string, content: string) => void;
   setSelectedCanvasElementId: (id: string) => void;
   setSaveFormat: (format: SaveFormat | null) => void;
+  clearCanvas: () => void;
 }
 
 export const useAppStore = create(
@@ -90,6 +91,17 @@ export const useAppStore = create(
 
         setSaveFormat: (format: SaveFormat | null) => {
           set({ saveFormat: format });
+        },
+
+        clearCanvas: () => {
+          set({
+            canvasName: "my-invitation",
+            canvasSize: [1024, 768],
+            canvasBackgroundColor: "#ffffff",
+            canvasElements: [],
+            selectedCanvasElementId: "",
+            saveFormat: null,
+          });
         },
       })),
       { limit: 50 },

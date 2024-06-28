@@ -48,7 +48,7 @@ const SaveButton = memo((): JSX.Element => {
 
       <Text
         slot="description"
-        className="text-sm uppercase text-muted-foreground"
+        className="text-center text-sm uppercase text-muted-foreground"
       >
         svg | png | jpeg
       </Text>
