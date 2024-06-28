@@ -4,7 +4,7 @@ import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { devtools } from "zustand/middleware";
 
-import { CanvasElement } from "@/types";
+import { CanvasElement, SaveFormat } from "@/types";
 
 import generateRandomUUID from "@/helpers/generateRandomUUID";
 import { Color } from "react-aria-components";
@@ -15,6 +15,7 @@ export interface IAppStore {
   canvasBackgroundColor: string | Color;
   canvasElements: CanvasElement[];
   selectedCanvasElementId: string;
+  saveFormat: SaveFormat | null;
 }
 
 export interface IAppActions {
@@ -25,6 +26,7 @@ export interface IAppActions {
   updateCanvasElementCSS: (id: string, css: CSSProperties) => void;
   updateCanvasElementContent: (id: string, content: string) => void;
   setSelectedCanvasElementId: (id: string) => void;
+  setSaveFormat: (format: SaveFormat | null) => void;
 }
 
 export const useAppStore = create(
@@ -36,6 +38,7 @@ export const useAppStore = create(
         canvasBackgroundColor: "#ffffff",
         canvasElements: [],
         selectedCanvasElementId: "",
+        saveFormat: null,
 
         setCanvasName: (canvasName: string) => {
           set({ canvasName });
@@ -83,6 +86,10 @@ export const useAppStore = create(
 
         setSelectedCanvasElementId: (id: string) => {
           set({ selectedCanvasElementId: id });
+        },
+
+        setSaveFormat: (format: SaveFormat | null) => {
+          set({ saveFormat: format });
         },
       })),
       { limit: 50 },

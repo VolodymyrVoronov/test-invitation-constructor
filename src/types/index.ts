@@ -12,4 +12,4 @@ export type CanvasElement = {
   content?: string | JSX.Element;
 };
 
-export type SaveFormat = "pdf" | "png" | "jpeg";
+export type SaveFormat = "svg" | "png" | "jpeg";

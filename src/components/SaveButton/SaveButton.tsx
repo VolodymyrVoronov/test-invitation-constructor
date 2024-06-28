@@ -1,15 +1,21 @@
 import { Save } from "lucide-react";
 import { memo } from "react";
 import { Text } from "react-aria-components";
+import { useShallow } from "zustand/react/shallow";
 
+import { useAppStore } from "@/store/app";
 import { SaveFormat } from "@/types";
 
 import { Menu, MenuItem, MenuPopover, MenuTrigger } from "@/components/ui/menu";
 import { Button } from "../ui/button";
 
 const SaveButton = memo((): JSX.Element => {
+  const [setSaveFormat] = useAppStore(
+    useShallow((state) => [state.setSaveFormat]),
+  );
+
   const onSaveButtonClick = (saveAs: SaveFormat): void => {
-    console.log(saveAs);
+    setSaveFormat(saveAs);
   };
 
   return (
@@ -27,8 +33,8 @@ const SaveButton = memo((): JSX.Element => {
         </Button>
         <MenuPopover className="min-w-[10rem]">
           <Menu>
-            <MenuItem id="pdf" onAction={() => onSaveButtonClick("pdf")}>
-              PDF
+            <MenuItem id="svg" onAction={() => onSaveButtonClick("svg")}>
+              SVG
             </MenuItem>
             <MenuItem id="png" onAction={() => onSaveButtonClick("png")}>
               PNG
@@ -44,7 +50,7 @@ const SaveButton = memo((): JSX.Element => {
         slot="description"
         className="text-sm uppercase text-muted-foreground"
       >
-        pdf | png | jpeg
+        svg | png | jpeg
       </Text>
     </div>
   );
