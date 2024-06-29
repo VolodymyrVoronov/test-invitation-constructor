@@ -25,7 +25,7 @@ export interface IAppActions {
   setCanvasElement: (element: CanvasElement) => void;
   updateCanvasElementCSS: (id: string, css: CSSProperties) => void;
   updateCanvasElementContent: (id: string, content: string) => void;
-  setSelectedCanvasElement: (element: SelectedElement) => void;
+  setSelectedCanvasElement: (element: SelectedElement | null) => void;
   setSaveFormat: (format: SaveFormat | null) => void;
   clearCanvas: () => void;
 }

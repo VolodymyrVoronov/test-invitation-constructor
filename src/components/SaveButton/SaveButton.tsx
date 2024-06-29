@@ -10,12 +10,16 @@ import { Menu, MenuItem, MenuPopover, MenuTrigger } from "@/components/ui/menu";
 import { Button } from "../ui/button";
 
 const SaveButton = memo((): JSX.Element => {
-  const [setSaveFormat] = useAppStore(
-    useShallow((state) => [state.setSaveFormat]),
+  const [setSaveFormat, setSelectedCanvasElement] = useAppStore(
+    useShallow((state) => [
+      state.setSaveFormat,
+      state.setSelectedCanvasElement,
+    ]),
   );
 
   const onSaveButtonClick = (saveAs: SaveFormat): void => {
     setSaveFormat(saveAs);
+    setSelectedCanvasElement(null);
   };
 
   return (
@@ -33,9 +37,6 @@ const SaveButton = memo((): JSX.Element => {
         </Button>
         <MenuPopover className="min-w-[10rem]">
           <Menu>
-            <MenuItem id="svg" onAction={() => onSaveButtonClick("svg")}>
-              SVG
-            </MenuItem>
             <MenuItem id="png" onAction={() => onSaveButtonClick("png")}>
               PNG
             </MenuItem>
@@ -50,7 +51,7 @@ const SaveButton = memo((): JSX.Element => {
         slot="description"
         className="text-center text-sm uppercase text-muted-foreground"
       >
-        svg | png | jpeg
+        png | jpeg
       </Text>
     </div>
   );

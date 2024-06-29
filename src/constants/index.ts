@@ -132,3 +132,34 @@ export const GRADIENTS = [
   "linear-gradient(to left, #b3ffab, #12fff7)",
   "linear-gradient(to left, #ff6e7f, #bfe9ff)",
 ] as const;
+
+export const RESIZE_HANDLE_STYLES = {
+  topLeft: {
+    display: "block",
+    width: "10px",
+    height: "10px",
+    backgroundColor: "rgb(59 130 246 / 50%)",
+    borderRadius: "50%",
+  },
+  topRight: {
+    display: "block",
+    width: "10px",
+    height: "10px",
+    backgroundColor: "rgb(59 130 246 / 50%)",
+    borderRadius: "50%",
+  },
+  bottomLeft: {
+    display: "block",
+    width: "10px",
+    height: "10px",
+    backgroundColor: "rgb(59 130 246 / 50%)",
+    borderRadius: "50%",
+  },
+  bottomRight: {
+    display: "block",
+    width: "10px",
+    height: "10px",
+    backgroundColor: "rgb(59 130 246 / 50%)",
+    borderRadius: "50%",
+  },
+};

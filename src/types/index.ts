@@ -12,7 +12,7 @@ export type CanvasElement = {
   content?: string | JSX.Element;
 };
 
-export type SaveFormat = "svg" | "png" | "jpeg";
+export type SaveFormat = "png" | "jpeg";
 
 export type SelectedElement = {
   id: string;

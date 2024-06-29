@@ -1,10 +1,11 @@
-import { useToJpeg, useToPng, useToSvg } from "@hugocxl/react-to-image";
-import useMergedRef from "@react-hook/merged-ref";
 import { useEffect } from "react";
 import { useShallow } from "zustand/react/shallow";
 
+import downloadImage from "@/lib/downloadImage";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/app";
+import { SaveFormat } from "@/types";
+
 import Elements from "../Elements/Elements";
 
 const Canvas = (): JSX.Element => {
@@ -26,73 +27,30 @@ const Canvas = (): JSX.Element => {
     ]),
   );
 
-  const [, saveAsPng, pngRef] = useToPng<HTMLDivElement>({
-    onSuccess: (data) => {
-      const link = document.createElement("a");
-      link.download = `${canvasName}.png`;
-      link.href = data;
-      link.click();
+  const downloadImageHandler = async (): Promise<void> => {
+    await downloadImage("print-canvas", canvasName, saveFormat as SaveFormat);
 
-      const timerId = setTimeout(() => {
-        setSaveFormat(null);
-        clearTimeout(timerId);
-      }, 1000);
-    },
-  });
-
-  const [, saveAsJpeg, jpegRef] = useToJpeg<HTMLDivElement>({
-    quality: 1,
-    type: "image/jpeg",
-    onSuccess: (data) => {
-      const link = document.createElement("a");
-      link.download = `${canvasName}.jpg`;
-      link.href = data;
-      link.click();
-
-      const timerId = setTimeout(() => {
-        setSaveFormat(null);
-        clearTimeout(timerId);
-      }, 1000);
-    },
-  });
-
-  const [, convertToSvg, svgRef] = useToSvg<HTMLDivElement>({
-    onSuccess: (data) => {
-      const link = document.createElement("a");
-      link.download = `${canvasName}.svg`;
-      link.href = data;
-      link.click();
-
-      const timerId = setTimeout(() => {
-        setSaveFormat(null);
-        clearTimeout(timerId);
-      }, 1000);
-    },
-  });
-
-  const canvasRef = useMergedRef(pngRef, jpegRef, svgRef);
+    const timerId = setTimeout(() => {
+      setSaveFormat(null);
+      clearTimeout(timerId);
+    }, 1000);
+  };
 
   useEffect(() => {
     if (saveFormat === "png") {
-      saveAsPng();
+      downloadImageHandler();
 
       return;
     }
 
     if (saveFormat === "jpeg") {
-      saveAsJpeg();
-
-      return;
-    }
-
-    if (saveFormat === "svg") {
-      convertToSvg();
+      downloadImageHandler();
     }
   }, [saveFormat]);
 
   return (
     <div
-      ref={canvasRef}
+      id="print-canvas"
       className={cn(
         "w-full outline-dashed outline-2 outline-black dark:outline-slate-400",
         {
