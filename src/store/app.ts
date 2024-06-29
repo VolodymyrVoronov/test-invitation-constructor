@@ -1,4 +1,5 @@
 import { CSSProperties } from "react";
+import { type Color } from "react-aria-components";
 import { temporal } from "zundo";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
@@ -7,7 +8,6 @@ import { immer } from "zustand/middleware/immer";
 import { CanvasElement, SaveFormat, SelectedElement } from "@/types";
 
 import generateRandomUUID from "@/helpers/generateRandomUUID";
-import { Color } from "react-aria-components";
 
 export interface IAppStore {
   canvasName: string;
@@ -23,6 +23,7 @@ export interface IAppActions {
   setCanvasSize: (size: [number, number]) => void;
   setCanvasBackgroundColor: (color: string | Color) => void;
   setCanvasElement: (element: CanvasElement) => void;
+  deleteCanvasElement: (id: string) => void;
   updateCanvasElementCSS: (id: string, css: CSSProperties) => void;
   updateCanvasElementContent: (id: string, content: string) => void;
   setSelectedCanvasElement: (element: SelectedElement | null) => void;
@@ -65,13 +66,24 @@ export const useAppStore = create(
           });
         },
 
+        deleteCanvasElement: (id: string) => {
+          set((state) => {
+            state.canvasElements = state.canvasElements.filter(
+              (element) => element.id !== id,
+            );
+          });
+        },
+
         updateCanvasElementCSS: (id: string, css: CSSProperties) => {
           set((state) => {
             const index = state.canvasElements.findIndex(
               (element) => element.id === id,
             );
 
-            state.canvasElements[index].css = css;
+            state.canvasElements[index].css = {
+              ...state.canvasElements[index].css,
+              ...css,
+            };
           });
         },
 

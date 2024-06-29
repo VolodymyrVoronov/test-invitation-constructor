@@ -11,7 +11,14 @@ const ElementSelector = (): JSX.Element => {
   );
 
   const onElementClick = (element: JSX.Element): void => {
-    setCanvasElement({ type: "figure", content: element });
+    setCanvasElement({
+      type: "figure",
+      content: element,
+      css: {
+        zIndex: 1,
+        color: "#000000",
+      },
+    });
   };
 
   return (

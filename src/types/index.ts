@@ -17,4 +17,5 @@ export type SaveFormat = "png" | "jpeg";
 export type SelectedElement = {
   id: string;
   type: CanvasElementType;
+  css?: CSSProperties;
 };

@@ -1,11 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useShallow } from "zustand/react/shallow";
 
+import useCanvasClick from "@/hooks/useCanvasClick";
 import downloadImage from "@/lib/downloadImage";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/app";
 import { SaveFormat } from "@/types";
-import useCanvasClick from "@/hooks/useCanvasClick";
 
 import Elements from "../Elements/Elements";
 
@@ -36,26 +36,29 @@ const Canvas = (): JSX.Element => {
     setSelectedCanvasElement(null),
   );
 
-  const downloadImageHandler = async (): Promise<void> => {
-    await downloadImage("print-canvas", canvasName, saveFormat as SaveFormat);
+  const downloadImageHandler = useCallback(
+    async (saveFormat: SaveFormat): Promise<void> => {
+      await downloadImage("print-canvas", canvasName, saveFormat);
 
-    const timerId = setTimeout(() => {
-      setSaveFormat(null);
-      clearTimeout(timerId);
-    }, 1000);
-  };
+      const timerId = setTimeout(() => {
+        setSaveFormat(null);
+        clearTimeout(timerId);
+      }, 1000);
+    },
+    [canvasName, setSaveFormat],
+  );
 
   useEffect(() => {
     if (saveFormat === "png") {
-      downloadImageHandler();
+      downloadImageHandler("png");
 
       return;
     }
 
     if (saveFormat === "jpeg") {
-      downloadImageHandler();
+      downloadImageHandler("jpeg");
     }
-  }, [saveFormat]);
+  }, [downloadImageHandler, saveFormat]);
 
   return (
     <div
@@ -76,7 +79,6 @@ const Canvas = (): JSX.Element => {
         background: canvasBackgroundColor as string,
       }}
     >
-      TEst
       {canvasElements.map((canvasElement) => {
         if (canvasElement.type === "figure") {
           return (

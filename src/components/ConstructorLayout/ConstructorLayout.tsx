@@ -8,6 +8,7 @@ import Canvas from "../Canvas/Canvas";
 import CanvasSettings from "../CanvasSettings/CanvasSettings";
 import CanvasSizeView from "../CanvasSizeView/CanvasSizeView";
 import ConstructorLeft from "../ConstructorLeft/ConstructorLeft";
+import ConstructorRight from "../ConstructorRight/ConstructorRight";
 import Nav from "../Nav/Nav";
 
 const ConstructorLayout = (): JSX.Element => {
@@ -43,7 +44,7 @@ const ConstructorLayout = (): JSX.Element => {
         </section>
 
         <section className="lg:col-span-200px col-span-2 row-start-2 sm:col-span-1 sm:row-start-1 lg:row-start-1">
-          <div>3</div>
+          <ConstructorRight />
         </section>
       </main>
     </div>

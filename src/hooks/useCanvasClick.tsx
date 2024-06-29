@@ -9,9 +9,10 @@ function useCanvasClick<T extends HTMLElement>(
     function handleClick(e: MouseEvent) {
       if (ref.current) {
         const targetElement = e.target as HTMLElement;
-        const elementWithCanvasId = targetElement.getAttribute(dataAttribute);
+        const elementWithCanvasDataAttribute =
+          targetElement.getAttribute(dataAttribute);
 
-        if (elementWithCanvasId) {
+        if (elementWithCanvasDataAttribute) {
           cb();
         }
       }

@@ -163,3 +163,18 @@ export const RESIZE_HANDLE_STYLES = {
     borderRadius: "50%",
   },
 };
+
+export const BASIC_COLORS = [
+  "#FF0000",
+  "#008000",
+  "#0000FF",
+  "#FFFF00",
+  "#00FFFF",
+  "#FF00FF",
+  "#000000",
+  "#FFFFFF",
+  "#808080",
+  "#FFA500",
+  "#800080",
+  "#A52A2A",
+] as const;
