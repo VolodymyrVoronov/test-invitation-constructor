@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useShallow } from "zustand/react/shallow";
 
 import downloadImage from "@/lib/downloadImage";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/app";
 import { SaveFormat } from "@/types";
+import useCanvasClick from "@/hooks/useCanvasClick";
 
 import Elements from "../Elements/Elements";
 
@@ -16,6 +17,7 @@ const Canvas = (): JSX.Element => {
     saveFormat,
     canvasElements,
     setSaveFormat,
+    setSelectedCanvasElement,
   ] = useAppStore(
     useShallow((state) => [
       state.canvasName,
@@ -24,7 +26,14 @@ const Canvas = (): JSX.Element => {
       state.saveFormat,
       state.canvasElements,
       state.setSaveFormat,
+      state.setSelectedCanvasElement,
     ]),
+  );
+
+  const canvasRef = useRef<HTMLDivElement>(null);
+
+  useCanvasClick(canvasRef, "data-canvas-id", () =>
+    setSelectedCanvasElement(null),
   );
 
   const downloadImageHandler = async (): Promise<void> => {
@@ -50,7 +59,9 @@ const Canvas = (): JSX.Element => {
 
   return (
     <div
+      ref={canvasRef}
       id="print-canvas"
+      data-canvas-id
       className={cn(
         "w-full outline-dashed outline-2 outline-black dark:outline-slate-400",
         {
