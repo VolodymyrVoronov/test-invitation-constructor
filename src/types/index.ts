@@ -13,3 +13,8 @@ export type CanvasElement = {
 };
 
 export type SaveFormat = "svg" | "png" | "jpeg";
+
+export type SelectedElement = {
+  id: string;
+  type: CanvasElementType;
+};

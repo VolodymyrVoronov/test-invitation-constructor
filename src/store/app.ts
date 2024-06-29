@@ -1,10 +1,10 @@
 import { CSSProperties } from "react";
 import { temporal } from "zundo";
 import { create } from "zustand";
-import { immer } from "zustand/middleware/immer";
 import { devtools } from "zustand/middleware";
+import { immer } from "zustand/middleware/immer";
 
-import { CanvasElement, SaveFormat } from "@/types";
+import { CanvasElement, SaveFormat, SelectedElement } from "@/types";
 
 import generateRandomUUID from "@/helpers/generateRandomUUID";
 import { Color } from "react-aria-components";
@@ -14,7 +14,7 @@ export interface IAppStore {
   canvasSize: [number, number];
   canvasBackgroundColor: string | Color;
   canvasElements: CanvasElement[];
-  selectedCanvasElementId: string;
+  selectedCanvasElement: SelectedElement | null;
   saveFormat: SaveFormat | null;
 }
 
@@ -25,7 +25,7 @@ export interface IAppActions {
   setCanvasElement: (element: CanvasElement) => void;
   updateCanvasElementCSS: (id: string, css: CSSProperties) => void;
   updateCanvasElementContent: (id: string, content: string) => void;
-  setSelectedCanvasElementId: (id: string) => void;
+  setSelectedCanvasElement: (element: SelectedElement) => void;
   setSaveFormat: (format: SaveFormat | null) => void;
   clearCanvas: () => void;
 }
@@ -38,7 +38,7 @@ export const useAppStore = create(
         canvasSize: [1024, 768],
         canvasBackgroundColor: "#ffffff",
         canvasElements: [],
-        selectedCanvasElementId: "",
+        selectedCanvasElement: null,
         saveFormat: null,
 
         setCanvasName: (canvasName: string) => {
@@ -85,8 +85,8 @@ export const useAppStore = create(
           });
         },
 
-        setSelectedCanvasElementId: (id: string) => {
-          set({ selectedCanvasElementId: id });
+        setSelectedCanvasElement: (element: SelectedElement | null) => {
+          set({ selectedCanvasElement: element });
         },
 
         setSaveFormat: (format: SaveFormat | null) => {
@@ -99,7 +99,7 @@ export const useAppStore = create(
             canvasSize: [1024, 768],
             canvasBackgroundColor: "#ffffff",
             canvasElements: [],
-            selectedCanvasElementId: "",
+            selectedCanvasElement: null,
             saveFormat: null,
           });
         },

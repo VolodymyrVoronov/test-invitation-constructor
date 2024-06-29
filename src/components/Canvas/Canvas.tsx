@@ -5,6 +5,7 @@ import { useShallow } from "zustand/react/shallow";
 
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/app";
+import Elements from "../Elements/Elements";
 
 const Canvas = (): JSX.Element => {
   const [
@@ -12,6 +13,7 @@ const Canvas = (): JSX.Element => {
     canvasSize,
     canvasBackgroundColor,
     saveFormat,
+    canvasElements,
     setSaveFormat,
   ] = useAppStore(
     useShallow((state) => [
@@ -19,6 +21,7 @@ const Canvas = (): JSX.Element => {
       state.canvasSize,
       state.canvasBackgroundColor,
       state.saveFormat,
+      state.canvasElements,
       state.setSaveFormat,
     ]),
   );
@@ -104,7 +107,14 @@ const Canvas = (): JSX.Element => {
         background: canvasBackgroundColor as string,
       }}
     >
-      Canvas
+      TEst
+      {canvasElements.map((canvasElement) => {
+        if (canvasElement.type === "figure") {
+          return (
+            <Elements key={canvasElement.id} canvasElement={canvasElement} />
+          );
+        }
+      })}
     </div>
   );
 };
