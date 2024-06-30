@@ -61,6 +61,14 @@ const Canvas = (): JSX.Element => {
     }
   }, [downloadImageHandler, saveFormat]);
 
+  const elements = canvasElements.filter(
+    (canvasElement) => canvasElement.type === "figure",
+  );
+
+  const images = canvasElements.filter(
+    (canvasElement) => canvasElement.type === "image",
+  );
+
   return (
     <div
       ref={canvasRef}
@@ -80,19 +88,13 @@ const Canvas = (): JSX.Element => {
         background: canvasBackgroundColor as string,
       }}
     >
-      {canvasElements.map((canvasElement) => {
-        if (canvasElement.type === "figure") {
-          return (
-            <Elements key={canvasElement.id} canvasElement={canvasElement} />
-          );
-        }
+      {elements.map((canvasElement) => (
+        <Elements key={canvasElement.id} canvasElement={canvasElement} />
+      ))}
 
-        if (canvasElement.type === "image") {
-          return (
-            <Images key={canvasElement.id} canvasElement={canvasElement} />
-          );
-        }
-      })}
+      {images.map((canvasImage) => (
+        <Images key={canvasImage.id} canvasElement={canvasImage} />
+      ))}
     </div>
   );
 };

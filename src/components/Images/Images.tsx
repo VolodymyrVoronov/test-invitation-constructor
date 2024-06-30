@@ -40,7 +40,7 @@ const Images = ({
   );
 
   const onElementClick = (): void => {
-    if (canvasElement?.id) {
+    if (canvasElement?.id && selectedCanvasElement?.id !== canvasElement.id) {
       setSelectedCanvasElement({
         id: canvasElement.id,
         type: canvasElement.type,

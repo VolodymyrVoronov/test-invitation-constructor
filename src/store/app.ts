@@ -71,6 +71,8 @@ export const useAppStore = create(
             state.canvasElements = state.canvasElements.filter(
               (element) => element.id !== id,
             );
+
+            state.selectedCanvasElement = null;
           });
         },
 

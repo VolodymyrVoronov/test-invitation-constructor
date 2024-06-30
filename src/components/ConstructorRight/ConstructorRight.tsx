@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import ElementColor from "../ElementColor/ElementColor";
+import ElementLayer from "../ElementLayer/ElementLayer";
 import ElementSettings from "../ElementSettings/ElementSettings";
 
 const ConstructorRight = (): JSX.Element => {
@@ -32,6 +33,15 @@ const ConstructorRight = (): JSX.Element => {
           </AccordionContent>
         </AccordionItem>
 
+        <AccordionItem value="item-1">
+          <AccordionTrigger className="px-2 text-lg font-semibold hover:bg-slate-100 hover:no-underline disabled:cursor-not-allowed disabled:bg-transparent disabled:opacity-50">
+            Layer
+          </AccordionTrigger>
+          <AccordionContent className="px-2">
+            <ElementLayer />
+          </AccordionContent>
+        </AccordionItem>
+
         {selectedCanvasElement?.type === "text" ? (
           <AccordionItem value="item-2">
             <AccordionTrigger className="px-2 text-lg font-semibold hover:bg-slate-100 hover:no-underline disabled:cursor-not-allowed disabled:bg-transparent disabled:opacity-50">
@@ -44,8 +54,7 @@ const ConstructorRight = (): JSX.Element => {
           </AccordionItem>
         ) : null}
 
-        {selectedCanvasElement?.type === "figure" ||
-        selectedCanvasElement?.type === "text" ? (
+        {selectedCanvasElement?.type !== "image" ? (
           <AccordionItem value="item-3">
             <AccordionTrigger className="px-2 text-lg font-semibold hover:bg-slate-100 hover:no-underline disabled:cursor-not-allowed disabled:bg-transparent disabled:opacity-50">
               Color
