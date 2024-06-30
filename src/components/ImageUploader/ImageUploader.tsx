@@ -13,7 +13,7 @@ const ImageUploader = (): JSX.Element => {
     useShallow((state) => [state.setCanvasElement]),
   );
 
-  const onImageUploadChange = (element: string) => {
+  const onImageUploadChange = (element: string): void => {
     setCanvasElement({
       type: "image",
       content: element,
