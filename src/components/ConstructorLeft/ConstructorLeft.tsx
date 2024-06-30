@@ -3,6 +3,7 @@ import { memo, ReactElement, useState } from "react";
 
 import BackgroundSelector from "../BackgroundSelector/BackgroundSelector";
 import ElementSelector from "../ElementSelector/ElementSelector";
+import ImageUploader from "../ImageUploader/ImageUploader";
 import LeftSideBar from "../LeftSideBar/LeftSideBar";
 
 const SideElements: { element: ReactElement }[] = [
@@ -16,7 +17,7 @@ const SideElements: { element: ReactElement }[] = [
     element: <div>Text</div>,
   },
   {
-    element: <div>Image</div>,
+    element: <ImageUploader />,
   },
 ];
 
