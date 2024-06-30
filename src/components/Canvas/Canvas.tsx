@@ -8,6 +8,7 @@ import { useAppStore } from "@/store/app";
 import { SaveFormat } from "@/types";
 
 import Elements from "../Elements/Elements";
+import Images from "../Images/Images";
 
 const Canvas = (): JSX.Element => {
   const [
@@ -83,6 +84,12 @@ const Canvas = (): JSX.Element => {
         if (canvasElement.type === "figure") {
           return (
             <Elements key={canvasElement.id} canvasElement={canvasElement} />
+          );
+        }
+
+        if (canvasElement.type === "image") {
+          return (
+            <Images key={canvasElement.id} canvasElement={canvasElement} />
           );
         }
       })}

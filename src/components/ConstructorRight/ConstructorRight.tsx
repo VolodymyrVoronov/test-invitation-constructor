@@ -44,14 +44,17 @@ const ConstructorRight = (): JSX.Element => {
           </AccordionItem>
         ) : null}
 
-        <AccordionItem value="item-3">
-          <AccordionTrigger className="px-2 text-lg font-semibold hover:bg-slate-100 hover:no-underline disabled:cursor-not-allowed disabled:bg-transparent disabled:opacity-50">
-            Color
-          </AccordionTrigger>
-          <AccordionContent className="px-2">
-            <ElementColor />
-          </AccordionContent>
-        </AccordionItem>
+        {selectedCanvasElement?.type === "figure" ||
+        selectedCanvasElement?.type === "text" ? (
+          <AccordionItem value="item-3">
+            <AccordionTrigger className="px-2 text-lg font-semibold hover:bg-slate-100 hover:no-underline disabled:cursor-not-allowed disabled:bg-transparent disabled:opacity-50">
+              Color
+            </AccordionTrigger>
+            <AccordionContent className="px-2">
+              <ElementColor />
+            </AccordionContent>
+          </AccordionItem>
+        ) : null}
       </Accordion>
     </div>
   );
