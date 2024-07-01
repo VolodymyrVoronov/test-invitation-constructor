@@ -5,6 +5,7 @@ import BackgroundSelector from "../BackgroundSelector/BackgroundSelector";
 import ElementSelector from "../ElementSelector/ElementSelector";
 import ImageUploader from "../ImageUploader/ImageUploader";
 import LeftSideBar from "../LeftSideBar/LeftSideBar";
+import TypographySelector from "../TypographySelector/TypographySelector";
 
 const SideElements: { element: ReactElement }[] = [
   {
@@ -14,7 +15,7 @@ const SideElements: { element: ReactElement }[] = [
     element: <BackgroundSelector />,
   },
   {
-    element: <div>Text</div>,
+    element: <TypographySelector />,
   },
   {
     element: <ImageUploader />,

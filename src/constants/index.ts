@@ -178,3 +178,75 @@ export const BASIC_COLORS = [
   "#800080",
   "#A52A2A",
 ] as const;
+
+export const TYPOGRAPHY = [
+  {
+    id: 1,
+    shape: "H1",
+    description: "Text",
+    css: {
+      fontSize: "2.5rem",
+      fontWeight: "bold",
+      lineHeight: "1.25",
+    },
+  },
+  {
+    id: 2,
+    shape: "H2",
+    description: "Text",
+    css: {
+      fontSize: "2rem",
+      fontWeight: "bold",
+      lineHeight: "1.25",
+    },
+  },
+  {
+    id: 3,
+    shape: "H3",
+    description: "Text",
+    css: {
+      fontSize: "1.5rem",
+      fontWeight: "bold",
+      lineHeight: "1.25",
+    },
+  },
+  {
+    id: 4,
+    shape: "H4",
+    description: "Text",
+    css: {
+      fontSize: "1.25rem",
+      fontWeight: "bold",
+      lineHeight: "1.25",
+    },
+  },
+  {
+    id: 5,
+    shape: "H5",
+    description: "Text",
+    css: {
+      fontSize: "1rem",
+      fontWeight: "bold",
+      lineHeight: "1.25",
+    },
+  },
+  {
+    id: 6,
+    shape: "H6",
+    description: "Text",
+    css: {
+      fontSize: "0.875rem",
+      fontWeight: "bold",
+      lineHeight: "1.25",
+    },
+  },
+  {
+    id: 7,
+    shape: "P",
+    description: "Text",
+    css: {
+      fontSize: "1rem",
+      lineHeight: "1.5",
+    },
+  },
+];
