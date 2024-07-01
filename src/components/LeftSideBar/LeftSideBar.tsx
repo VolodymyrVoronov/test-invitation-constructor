@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Box, CaseSensitive, Image, Proportions } from "lucide-react";
+import { Box, CaseSensitive, Image, PaintBucket } from "lucide-react";
 import { ComponentProps, ReactElement } from "react";
 
 import { Button } from "../ui/button";
@@ -29,7 +29,7 @@ const tabs: ITab[] = [
   {
     id: 1,
     index: 1,
-    icon: <Proportions />,
+    icon: <PaintBucket />,
     ariaLabel: "Tab Background",
     tooltip: "Add Background",
   },

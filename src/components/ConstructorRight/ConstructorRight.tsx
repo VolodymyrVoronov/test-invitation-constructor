@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useShallow } from "zustand/react/shallow";
 
 import { useAppStore } from "@/store/app";
@@ -12,7 +13,7 @@ import ElementColor from "../ElementColor/ElementColor";
 import ElementLayer from "../ElementLayer/ElementLayer";
 import ElementSettings from "../ElementSettings/ElementSettings";
 
-const ConstructorRight = (): JSX.Element => {
+const ConstructorRight = memo((): JSX.Element => {
   const [selectedCanvasElement] = useAppStore(
     useShallow((state) => [state.selectedCanvasElement]),
   );
@@ -67,6 +68,6 @@ const ConstructorRight = (): JSX.Element => {
       </Accordion>
     </div>
   );
-};
+});
 
 export default ConstructorRight;
