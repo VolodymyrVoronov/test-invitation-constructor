@@ -1,4 +1,4 @@
-import { Bold, Italic, Strikethrough, Underline } from "lucide-react";
+import { Bold, Italic } from "lucide-react";
 import { useShallow } from "zustand/react/shallow";
 
 import { useAppStore } from "@/store/app";
@@ -22,9 +22,6 @@ const TypoSettings = (): JSX.Element => {
 
   const isBold = selectedElement?.css?.fontWeight === "bold";
   const isItalic = selectedElement?.css?.fontStyle === "italic";
-  const isUnderline = selectedElement?.css?.textDecoration === "underline";
-  const isStrikethrough =
-    selectedElement?.css?.textDecoration === "line-through";
 
   const onBoldButtonClick = (): void => {
     if (selectedCanvasElement?.id && selectedElement?.id) {
@@ -38,30 +35,6 @@ const TypoSettings = (): JSX.Element => {
     if (selectedCanvasElement?.id && selectedElement?.id) {
       updateCanvasElementCSS(selectedElement.id, {
         fontStyle: isItalic ? "normal" : "italic",
-      });
-    }
-  };
-
-  const onUnderlineButtonClick = (): void => {
-    if (selectedCanvasElement?.id && selectedElement?.id) {
-      updateCanvasElementCSS(selectedElement.id, {
-        textDecoration: isUnderline
-          ? "none"
-          : isStrikethrough
-            ? "line-through"
-            : "underline",
-      });
-    }
-  };
-
-  const onStrikethroughButtonClick = (): void => {
-    if (selectedCanvasElement?.id && selectedElement?.id) {
-      updateCanvasElementCSS(selectedElement.id, {
-        textDecoration: isStrikethrough
-          ? "none"
-          : isUnderline
-            ? "underline"
-            : "line-through",
       });
     }
   };
@@ -101,39 +74,6 @@ const TypoSettings = (): JSX.Element => {
 
         <Tooltip>
           <span>Italic</span>
-        </Tooltip>
-      </TooltipTrigger>
-
-      <TooltipTrigger>
-        <Toggle
-          onPress={onUnderlineButtonClick}
-          isSelected={isUnderline}
-          defaultSelected={isUnderline}
-          isDisabled={isElementSelected}
-          aria-label="Toggle underline"
-          variant="outline"
-        >
-          <Underline className="h-4 w-4" />
-        </Toggle>
-
-        <Tooltip>
-          <span>Underline</span>
-        </Tooltip>
-      </TooltipTrigger>
-
-      <TooltipTrigger>
-        <Toggle
-          onPress={onStrikethroughButtonClick}
-          isSelected={isStrikethrough}
-          defaultSelected={isStrikethrough}
-          isDisabled={isElementSelected}
-          aria-label="Toggle strikethrough"
-          variant="outline"
-        >
-          <Strikethrough className="h-4 w-4" />
-        </Toggle>
-        <Tooltip>
-          <span>Strikethrough</span>
         </Tooltip>
       </TooltipTrigger>
     </div>
