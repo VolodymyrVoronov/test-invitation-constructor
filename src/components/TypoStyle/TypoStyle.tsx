@@ -6,7 +6,7 @@ import { useAppStore } from "@/store/app";
 import { Tooltip, TooltipTrigger } from "@/components/ui/tooltip";
 import { Toggle } from "../ui/toggle";
 
-const TypoSettings = (): JSX.Element => {
+const TypoStyle = (): JSX.Element => {
   const [canvasElements, selectedCanvasElement, updateCanvasElementCSS] =
     useAppStore(
       useShallow((state) => [
@@ -83,4 +83,4 @@ const TypoSettings = (): JSX.Element => {
   );
 };
 
-export default TypoSettings;
+export default TypoStyle;
