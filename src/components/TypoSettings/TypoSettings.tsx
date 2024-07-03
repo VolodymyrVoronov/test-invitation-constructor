@@ -42,40 +42,43 @@ const TypoSettings = (): JSX.Element => {
   const isElementSelected = !selectedCanvasElement?.id;
 
   return (
-    <div className="mt-2 flex w-full gap-2">
-      <TooltipTrigger>
-        <Toggle
-          onPress={onBoldButtonClick}
-          isSelected={isBold}
-          defaultSelected={isBold}
-          isDisabled={isElementSelected}
-          aria-label="Toggle bold"
-          variant="outline"
-        >
-          <Bold className="h-4 w-4" />
-        </Toggle>
+    <div>
+      <span>Style</span>
+      <div className="mt-2 flex w-full gap-2">
+        <TooltipTrigger>
+          <Toggle
+            onPress={onBoldButtonClick}
+            isSelected={isBold}
+            defaultSelected={isBold}
+            isDisabled={isElementSelected}
+            aria-label="Toggle bold"
+            variant="outline"
+          >
+            <Bold className="h-4 w-4" />
+          </Toggle>
 
-        <Tooltip>
-          <span>Bold</span>
-        </Tooltip>
-      </TooltipTrigger>
+          <Tooltip>
+            <span>Bold</span>
+          </Tooltip>
+        </TooltipTrigger>
 
-      <TooltipTrigger>
-        <Toggle
-          onPress={onItalicButtonClick}
-          isSelected={isItalic}
-          defaultSelected={isItalic}
-          isDisabled={isElementSelected}
-          aria-label="Toggle italic"
-          variant="outline"
-        >
-          <Italic className="h-4 w-4" />
-        </Toggle>
+        <TooltipTrigger>
+          <Toggle
+            onPress={onItalicButtonClick}
+            isSelected={isItalic}
+            defaultSelected={isItalic}
+            isDisabled={isElementSelected}
+            aria-label="Toggle italic"
+            variant="outline"
+          >
+            <Italic className="h-4 w-4" />
+          </Toggle>
 
-        <Tooltip>
-          <span>Italic</span>
-        </Tooltip>
-      </TooltipTrigger>
+          <Tooltip>
+            <span>Italic</span>
+          </Tooltip>
+        </TooltipTrigger>
+      </div>
     </div>
   );
 };
