@@ -36,7 +36,7 @@ export const useAppStore = create(
     devtools(
       immer<IAppStore & IAppActions>((set, get) => ({
         canvasName: "my-invitation",
-        canvasSize: [500, 1000],
+        canvasSize: [500, 500],
         canvasBackgroundColor: "#ffffff",
         canvasElements: [],
         selectedCanvasElement: null,

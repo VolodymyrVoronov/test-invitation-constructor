@@ -9,6 +9,7 @@ import { SaveFormat } from "@/types";
 
 import Elements from "../Elements/Elements";
 import Images from "../Images/Images";
+import Typos from "../Typos/Typos";
 
 const Canvas = (): JSX.Element => {
   const [
@@ -69,6 +70,10 @@ const Canvas = (): JSX.Element => {
     (canvasElement) => canvasElement.type === "image",
   );
 
+  const typos = canvasElements.filter(
+    (canvasElement) => canvasElement.type === "text",
+  );
+
   return (
     <div
       ref={canvasRef}
@@ -94,6 +99,10 @@ const Canvas = (): JSX.Element => {
 
       {images.map((canvasImage) => (
         <Images key={canvasImage.id} canvasElement={canvasImage} />
+      ))}
+
+      {typos.map((canvasElement) => (
+        <Typos key={canvasElement.id} canvasElement={canvasElement} />
       ))}
     </div>
   );
