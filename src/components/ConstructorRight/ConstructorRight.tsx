@@ -13,6 +13,7 @@ import ElementColor from "../ElementColor/ElementColor";
 import ElementLayer from "../ElementLayer/ElementLayer";
 import ElementSettings from "../ElementSettings/ElementSettings";
 import TypoSettings from "../TypoSettings/TypoSettings";
+import TypoSize from "../TypoSize/TypoSize";
 
 const ConstructorRight = memo((): JSX.Element => {
   const [selectedCanvasElement] = useAppStore(
@@ -50,8 +51,9 @@ const ConstructorRight = memo((): JSX.Element => {
             <AccordionTrigger className="px-2 text-lg font-semibold hover:bg-slate-100 hover:no-underline disabled:cursor-not-allowed disabled:bg-transparent disabled:opacity-50">
               Text Settings
             </AccordionTrigger>
-            <AccordionContent className="px-2">
+            <AccordionContent className="space-y-4 px-2">
               <TypoSettings />
+              <TypoSize />
             </AccordionContent>
           </AccordionItem>
         ) : null}

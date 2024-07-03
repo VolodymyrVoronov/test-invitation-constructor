@@ -185,7 +185,7 @@ export const TYPOGRAPHY = [
     shape: "H1",
     description: "Text",
     css: {
-      fontSize: "2.5rem",
+      fontSize: "40px", // 2.5rem * 16px
       fontWeight: "bold",
       lineHeight: "1.25",
     },
@@ -195,7 +195,7 @@ export const TYPOGRAPHY = [
     shape: "H2",
     description: "Text",
     css: {
-      fontSize: "2rem",
+      fontSize: "32px", // 2rem * 16px
       fontWeight: "bold",
       lineHeight: "1.25",
     },
@@ -205,7 +205,7 @@ export const TYPOGRAPHY = [
     shape: "H3",
     description: "Text",
     css: {
-      fontSize: "1.5rem",
+      fontSize: "24px", // 1.5rem * 16px
       fontWeight: "bold",
       lineHeight: "1.25",
     },
@@ -215,7 +215,7 @@ export const TYPOGRAPHY = [
     shape: "H4",
     description: "Text",
     css: {
-      fontSize: "1.25rem",
+      fontSize: "20px", // 1.25rem * 16px
       fontWeight: "bold",
       lineHeight: "1.25",
     },
@@ -225,7 +225,7 @@ export const TYPOGRAPHY = [
     shape: "H5",
     description: "Text",
     css: {
-      fontSize: "1rem",
+      fontSize: "16px", // 1rem * 16px
       fontWeight: "bold",
       lineHeight: "1.25",
     },
@@ -235,7 +235,7 @@ export const TYPOGRAPHY = [
     shape: "H6",
     description: "Text",
     css: {
-      fontSize: "0.875rem",
+      fontSize: "14px", // 0.875rem * 16px
       fontWeight: "bold",
       lineHeight: "1.25",
     },
@@ -245,7 +245,7 @@ export const TYPOGRAPHY = [
     shape: "P",
     description: "Text",
     css: {
-      fontSize: "1rem",
+      fontSize: "16px", // 1rem * 16px
       lineHeight: "1.5",
     },
   },
