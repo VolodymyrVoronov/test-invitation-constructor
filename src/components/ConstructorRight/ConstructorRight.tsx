@@ -12,6 +12,7 @@ import {
 import ElementColor from "../ElementColor/ElementColor";
 import ElementLayer from "../ElementLayer/ElementLayer";
 import ElementSettings from "../ElementSettings/ElementSettings";
+import TypoSettings from "../TypoSettings/TypoSettings";
 
 const ConstructorRight = memo((): JSX.Element => {
   const [selectedCanvasElement] = useAppStore(
@@ -43,14 +44,14 @@ const ConstructorRight = memo((): JSX.Element => {
           </AccordionContent>
         </AccordionItem>
 
-        {selectedCanvasElement?.type === "text" ? (
+        {selectedCanvasElement?.type !== "image" &&
+        selectedCanvasElement?.type !== "figure" ? (
           <AccordionItem value="item-2">
             <AccordionTrigger className="px-2 text-lg font-semibold hover:bg-slate-100 hover:no-underline disabled:cursor-not-allowed disabled:bg-transparent disabled:opacity-50">
               Text Settings
             </AccordionTrigger>
             <AccordionContent className="px-2">
-              Yes. It comes with default styles that matches the other
-              components&apos; aesthetic.
+              <TypoSettings />
             </AccordionContent>
           </AccordionItem>
         ) : null}
