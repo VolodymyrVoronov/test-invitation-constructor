@@ -1,13 +1,12 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import { cva, type VariantProps } from "class-variance-authority";
 import {
   Button as _Button,
   type ButtonProps as _ButtonProps,
-} from "react-aria-components"
+} from "react-aria-components";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
@@ -35,8 +34,8 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 export interface ButtonProps
   extends _ButtonProps,
@@ -52,12 +51,12 @@ const Button = ({ className, variant, size, ...props }: ButtonProps) => {
             size,
             className:
               typeof className === "function" ? className(values) : className,
-          })
+          }),
         )
       }
       {...props}
     />
-  )
-}
+  );
+};
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

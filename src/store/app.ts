@@ -34,7 +34,7 @@ export interface IAppActions {
 export const useAppStore = create(
   temporal(
     devtools(
-      immer<IAppStore & IAppActions>((set, get) => ({
+      immer<IAppStore & IAppActions>((set) => ({
         canvasName: "my-invitation",
         canvasSize: [500, 500],
         canvasBackgroundColor: "#ffffff",
