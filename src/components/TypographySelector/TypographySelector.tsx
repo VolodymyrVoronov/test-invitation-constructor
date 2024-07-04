@@ -18,6 +18,7 @@ const TypographySelector = (): JSX.Element => {
       css: {
         zIndex: 1,
         color: "#000000",
+        fontFamily: "'Montserrat Variable', sans-serif",
         ...css,
       },
     });

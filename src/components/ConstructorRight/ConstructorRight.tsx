@@ -13,6 +13,7 @@ import ElementColor from "../ElementColor/ElementColor";
 import ElementLayer from "../ElementLayer/ElementLayer";
 import ElementSettings from "../ElementSettings/ElementSettings";
 import TypoAlignment from "../TypoAlignment/TypoAlignment";
+import TypoFontFamily from "../TypoFontFamily/TypoFontFamily";
 import TypoSize from "../TypoSize/TypoSize";
 import TypoStyle from "../TypoStyle/TypoStyle";
 
@@ -53,6 +54,7 @@ const ConstructorRight = memo((): JSX.Element => {
               Text Settings
             </AccordionTrigger>
             <AccordionContent className="space-y-4 px-2">
+              <TypoFontFamily />
               <TypoStyle />
               <TypoSize />
               <TypoAlignment />

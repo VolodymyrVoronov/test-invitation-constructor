@@ -250,3 +250,81 @@ export const TYPOGRAPHY = [
     },
   },
 ];
+
+export const FONTS = [
+  {
+    id: "1",
+    name: "Press Start 2P",
+    fontFamily: "'Press Start 2P', system-ui",
+  },
+  {
+    id: "2",
+    name: "Comfortaa Variable",
+    fontFamily: "'Comfortaa Variable', system-ui",
+  },
+  {
+    id: "3",
+    name: "Montserrat Variable",
+    fontFamily: "'Montserrat Variable', sans-serif",
+  },
+  {
+    id: "4",
+    name: "Luckiest Guy",
+    fontFamily: "'Luckiest Guy', system-ui",
+  },
+  {
+    id: "5",
+    name: "Lobster",
+    fontFamily: "'Lobster', system-ui",
+  },
+  {
+    id: "6",
+    name: "Happy Monkey",
+    fontFamily: "'Happy Monkey', system-ui",
+  },
+  {
+    id: "7",
+    name: "Special Elite",
+    fontFamily: "'Special Elite', system-ui",
+  },
+  {
+    id: "8",
+    name: "Rampart One",
+    fontFamily: "''Rampart One', system-ui",
+  },
+  {
+    id: "9",
+    name: "Bungee Shade",
+    fontFamily: "'Bungee Shade', system-ui",
+  },
+  {
+    id: "10",
+    name: "Ranga",
+    fontFamily: "'Ranga', system-ui",
+  },
+  {
+    id: "11",
+    name: "Tourney",
+    fontFamily: " 'Tourney Variable', system-ui",
+  },
+  {
+    id: "12",
+    name: "Poppins",
+    fontFamily: "'Poppins', sans-serif",
+  },
+  {
+    id: "13",
+    name: "Sacramento",
+    fontFamily: "'Sacramento', cursive",
+  },
+  {
+    id: "14",
+    name: "Twinkle Star",
+    fontFamily: "'Twinkle Star', cursive",
+  },
+  {
+    id: "15",
+    name: "Nanum Brush Script",
+    fontFamily: "'Nanum Brush Script', cursive",
+  },
+];
