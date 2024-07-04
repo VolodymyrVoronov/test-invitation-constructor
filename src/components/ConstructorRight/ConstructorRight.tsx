@@ -12,8 +12,9 @@ import {
 import ElementColor from "../ElementColor/ElementColor";
 import ElementLayer from "../ElementLayer/ElementLayer";
 import ElementSettings from "../ElementSettings/ElementSettings";
-import TypoStyle from "../TypoStyle/TypoStyle";
+import TypoAlignment from "../TypoAlignment/TypoAlignment";
 import TypoSize from "../TypoSize/TypoSize";
+import TypoStyle from "../TypoStyle/TypoStyle";
 
 const ConstructorRight = memo((): JSX.Element => {
   const [selectedCanvasElement] = useAppStore(
@@ -54,6 +55,7 @@ const ConstructorRight = memo((): JSX.Element => {
             <AccordionContent className="space-y-4 px-2">
               <TypoStyle />
               <TypoSize />
+              <TypoAlignment />
             </AccordionContent>
           </AccordionItem>
         ) : null}
